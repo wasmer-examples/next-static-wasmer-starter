@@ -29,8 +29,40 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy on Wasmer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can deploy this project to Wasmer Edge.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 1. Install the `wasmer` CLI
+
+```bash
+curl https://get.wasmer.io -sSfL | sh
+```
+
+### 2. Clone this repository
+
+```bash
+git clone
+```
+
+### 3. Install the dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the Next.js site
+
+```bash
+npm run dev
+```
+
+You will get the output from the Next.js site.
+
+### 5. Deploy the Next.js site
+
+```bash
+wasmer deploy
+```
+
+> You will need to change the namespace in `wasmer.toml` to your own namespace and app name in `app.yaml` to your own app name.
