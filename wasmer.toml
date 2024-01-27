@@ -1,7 +1,9 @@
 [package]
-name = "wasmer-tests/wasmer-edge-next-ssg-sample"
-version = "0.1.1"
-description = "wasmer-tests/wasmer-edge-next-ssg-sample website"
+name = "wasmer-examples/next-ssg-wasmer-starter"
+version = "0.2.0"
+description = "Next.js static Website Wasmer starter package"
+readme = "README.md"
+repository = "https://github.com/wasmer-examples/next-ssg-wasmer-starter"
 
 [dependencies]
 "wasmer/static-web-server" = "^1"
