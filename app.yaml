@@ -1,4 +1,2 @@
----
 kind: wasmer.io/App.v0
-name: wasmer-edge-next-ssg-sample
-package: wasmer-examples/next-ssg-wasmer-starter
+package: .
