@@ -1,45 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
+# Next.js Static Export + Wasmer
 
-## Getting Started
+This example shows how to export a **Next.js** app as static HTML and host it on **Wasmer Edge**.
 
-First, run the development server:
+## Demo
+
+https://wasmer-edge-next-ssg-sample.wasmer.app/
+
+## How it Works
+
+* `next.config.js` sets `output: "export"`, so `next build && next export` emit static files into the `out/` directory.
+* `src/app/page.tsx` contains the landing page (App Router), but any other static routes you add will be exported too.
+* No serverless runtime is required—Wasmer simply serves the generated HTML/CSS/JS.
+
+## Running Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-You can also run the Next.js Static Website template easily using Wasmer (check out the [install guide](https://docs.wasmer.io/install)):
+Open `http://127.0.0.1:3000/` to develop with hot reload. To preview the static export:
 
 ```bash
 npm run build
-wasmer run . -- --port 3000
+npm run export
+npm run serve  # serves the ./out folder
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploying to Wasmer (Overview)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Wasmer Edge
-
-The easiest way to deploy your Next.js app is to use the [Wasmer Edge](https://wasmer.io/products/edge).
-
-Live example: https://wasmer-edge-next-ssg-sample.wasmer.app/
-
-First, you'll need to run `npm run build`, and then, to deploy to Wasmer Edge:
-
-```bash
-wasmer deploy
-```
+1. Build the site: `npm run build && npm run export` (creates the `out/` folder).
+2. Configure Wasmer Edge to publish the `out/` directory.
+3. Deploy and access `https://<your-subdomain>.wasmer.app/`.
